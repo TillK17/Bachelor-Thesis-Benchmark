@@ -11,11 +11,11 @@ sample_webtable: build
 
 sample_cost_canada_us_uk: build
 	sudo /usr/local/bin/drop_caches
-	sample_cost -pg-table-read-set-cost-samples=canada_us_uk_read_set_cost_samples -pg-table-read-list-cost-samples=canada_us_uk_read_list_cost_samples -cost-max-list-size=4000 -cost-list-size-step=100 -cost-sample-per-size=10 -pg-table-queries=canada_us_uk_queries_100k
+	sample_costs -pg-table-read-set-cost-samples=canada_us_uk_read_set_cost_samples -pg-table-read-list-cost-samples=canada_us_uk_read_list_cost_samples -cost-max-list-size=4000 -cost-list-size-step=100 -cost-sample-per-size=10 -pg-table-queries=canada_us_uk_queries_100k
 
 sample_cost_webtable: build
 	sudo /usr/local/bin/drop_caches
-	sample_cost -pg-table-sets=webtable_sets -pg-table-lists=webtable_inverted_lists -pg-table-read-set-cost-samples=webtable_read_set_cost_samples -pg-table-read-list-cost-samples=webtable_read_list_cost_samples -cost-max-list-size=10000 -cost-list-size-step=1000 -cost-sample-per-size=10 -pg-table-queries=webtable_queries_10k
+	sample_costs -pg-table-sets=webtable_sets -pg-table-lists=webtable_inverted_lists -pg-table-read-set-cost-samples=webtable_read_set_cost_samples -pg-table-read-list-cost-samples=webtable_read_list_cost_samples -cost-max-list-size=10000 -cost-list-size-step=1000 -cost-sample-per-size=10 -pg-table-queries=webtable_queries_10k
 
 minhash_canada_us_uk: build
 	create_minhash -pg-table-lists=canada_us_uk_inverted_lists -pg-table-sets=canada_us_uk_sets -pg-table-minhash=canada_us_uk_minhash -nworker=32
